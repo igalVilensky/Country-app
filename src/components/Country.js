@@ -15,12 +15,12 @@ const Country = ({ results }) => {
       borders,
     } = obj;
     return (
-      <div key={i}>
+      <div key={i} className="result">
         `<h1>{name}</h1>
         <p>
           {name} is a country located in {region} ({subregion} subregion) and
-          shares borders with {borders}. {name}'s capital city is {capital} and
-          its area is {area} km<sup>2</sup>. The population of {name} is around{" "}
+          shares borders with: {borders}. {name}'s capital city is {capital} and
+          its area is {area} km<sup>2</sup>. The population of {name} is{" "}
           {population}. The timezone for {name} is {timezones}
         </p>
         <img src={flag} alt={name} className="flag" /> `

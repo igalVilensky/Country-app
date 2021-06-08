@@ -31,7 +31,8 @@ function App() {
     console.log(results);
   }
   return (
-    <React.Fragment>
+    <div className="app__main">
+      <h1 className="heading">Countries database app</h1>
       <form onSubmit={submitHandle}>
         <input
           type="text"
@@ -42,7 +43,7 @@ function App() {
         <button type="submit">Search</button>
       </form>
       <Country results={results} />
-    </React.Fragment>
+    </div>
   );
 }
 
