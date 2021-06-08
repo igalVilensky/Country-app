@@ -89,13 +89,8 @@ body {
   background: #294da2;
   border-radius: 15px;
   margin-top: 45px;
-  background: rgb(9, 9, 121);
-  background: linear-gradient(
-    90deg,
-    rgba(9, 9, 121, 1) 0%,
-    rgba(2, 0, 36, 1) 100%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: #314475;
+  background: linear-gradient(90deg, #314475 0%, #314475 0%, #4c63a0 100%);
   box-shadow: 0 1px 2px rgba(110, 218, 148, 0.07),
     0 2px 4px rgba(110, 218, 148, 0.07), 0 4px 8px rgba(110, 218, 148, 0.07),
     0 8px 16px rgba(110, 218, 148, 0.07), 0 16px 32px rgba(110, 218, 148, 0.07),
