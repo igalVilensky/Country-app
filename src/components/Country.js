@@ -1,47 +1,33 @@
 import React from "react";
 
-function Country({ results }) {
+const Country = ({ results }) => {
   const lands = results.map((obj, i) => {
+    console.log(obj);
     const {
       name,
-      topLevelDomain,
-      alphaCode,
-      alpha3Code,
-      callingCodes,
-      capital,
-      altSpellings,
       region,
-      subregion,
+      flag,
+      capital,
       population,
+      subregion,
+      area,
       timezones,
       borders,
-      nativeName,
-      currencies,
-      symbol,
-      languages,
     } = obj;
     return (
       <div key={i}>
-        <h2>{name}</h2>
-        <h2>{topLevelDomain}</h2>
-        <h2>{alphaCode}</h2>
-        <h2>{alpha3Code}</h2>
-        <h2>{callingCodes}</h2>
-        <h2>{capital}</h2>
-        <h2>{altSpellings}</h2>
-        <h2>{region}</h2>
-        <h2>{subregion}</h2>
-        <h2>{population}</h2>
-        <h2>{timezones}</h2>
-        <h2>{borders}</h2>
-        <h2>{nativeName}</h2>
-        <h2>{currencies}</h2>
-        <h2>{symbol}</h2>
-        <h2>{languages}</h2>
+        `<h1>{name}</h1>
+        <p>
+          {name} is a country located in {region} ({subregion} subregion) and
+          shares borders with {borders}. {name}'s capital city is {capital} and
+          its area is {area} km<sup>2</sup>. The population of {name} is around{" "}
+          {population}. The timezone for {name} is {timezones}
+        </p>
+        <img src={flag} alt={name} className="flag" /> `
       </div>
     );
   });
-  return <React.Fragment>{lands}</React.Fragment>;
-}
 
+  return <React.Fragment>{lands}</React.Fragment>;
+};
 export default Country;

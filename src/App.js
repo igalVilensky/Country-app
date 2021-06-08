@@ -7,7 +7,7 @@ import Country from "./components/Country";
 function App() {
   const [userInput, setUserInput] = useState("");
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
