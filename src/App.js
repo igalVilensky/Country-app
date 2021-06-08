@@ -32,13 +32,13 @@ function App() {
   }
   return (
     <div className="app__main">
-      <h1 className="heading">Countries database app</h1>
+      <h1 className="heading">Countries Database App</h1>
       <form onSubmit={submitHandle}>
         <input
           type="text"
           value={userInput}
           onChange={changeHandle}
-          placeholder="Please write a country name"
+          placeholder="Please enter country name"
         />
         <button type="submit">Search</button>
       </form>
