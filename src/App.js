@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./scss/main.scss";
 import axios from "axios";
+import Country from "./components/Country";
 
 function App() {
   const [userInput, setUserInput] = useState("");
@@ -21,12 +22,13 @@ function App() {
   function submitHandle(e) {
     e.preventDefault();
     let textToUrl = encodeURIComponent(userInput);
-    let endPoint = `https://restcountries.eu/rest/v2/name/${userInput}`;
+    let endPoint = `https://restcountries.eu/rest/v2/name/${textToUrl}`;
     // console.log(textToUrl);
 
     axios(endPoint)
       .then(({ data }) => setResults(data))
       .catch((err) => console.log(`You have an ${err}`));
+    console.log(results);
   }
   return (
     <React.Fragment>
@@ -39,6 +41,7 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
+      <Country results={results} />
     </React.Fragment>
   );
 }
