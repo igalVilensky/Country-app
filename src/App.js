@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Loading from "./components/Loading";
 import "./scss/main.scss";
 import axios from "axios";
 import Country from "./components/Country";
@@ -7,7 +7,7 @@ import Country from "./components/Country";
 function App() {
   const [userInput, setUserInput] = useState("");
   const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,6 +30,8 @@ function App() {
       .catch((err) => console.log(`You have an ${err}`));
     console.log(results);
   }
+
+  if (loading) return <Loading />;
   return (
     <div className="app__main">
       <h1 className="heading">Countries Database App</h1>
