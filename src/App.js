@@ -12,7 +12,8 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+      console.log("hi");
+    }, 1000);
   }, []);
 
   const getCountry = (status, countryName) => {
