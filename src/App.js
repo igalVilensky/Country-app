@@ -3,7 +3,8 @@ import Loading from "./components/Loading";
 import "./scss/main.scss";
 import axios from "axios";
 import Country from "./components/Country";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function App() {
   const [userInput, setUserInput] = useState("");
   const [results, setResults] = useState([]);
@@ -45,6 +46,17 @@ function App() {
         <button type="submit">Search</button>
       </form>
       <Country results={results} />
+      <div className="search-box">
+        <input
+          className="search-txt"
+          type="text"
+          name=""
+          placeholder="Write a country name"
+        ></input>
+        <a className="search-btn" href="#">
+          <FontAwesomeIcon icon={faSearch} />
+        </a>
+      </div>
     </div>
   );
 }
