@@ -3,8 +3,7 @@ import Loading from "./components/Loading";
 import "./scss/main.scss";
 import axios from "axios";
 import Country from "./components/Country";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 function App() {
   const [userInput, setUserInput] = useState("");
   const [results, setResults] = useState([]);
@@ -16,20 +15,21 @@ function App() {
     }, 1500);
   }, []);
 
-  function changeHandle(e) {
-    setUserInput(e.target.value);
-  }
-
-  function submitHandle(e) {
-    e.preventDefault();
-    let textToUrl = encodeURIComponent(userInput);
-    let endPoint = `https://restcountries.eu/rest/v2/name/${textToUrl}`;
-    // console.log(textToUrl);
+  const getCountry = (status, countryName) => {
+    let textToUrl = encodeURIComponent(countryName);
+    let endPoint = `https://restcountries.eu/rest/v2/${status}/${textToUrl}`;
 
     axios(endPoint)
       .then(({ data }) => setResults(data))
-      .catch((err) => console.log(`You have an ${err}`));
-    console.log(results);
+      .catch((err) => console.log(`Your had an ${err}`));
+  };
+  function changeHandle(e) {
+    setUserInput(e.target.value);
+  }
+  function submitHandle(e) {
+    e.preventDefault();
+    getCountry("name", userInput);
+    setUserInput("");
   }
 
   if (loading) return <Loading />;
@@ -43,20 +43,10 @@ function App() {
           onChange={changeHandle}
           placeholder="Please enter country name"
         />
+
         <button type="submit">Search</button>
       </form>
-      <Country results={results} />
-      <div className="search-box">
-        <input
-          className="search-txt"
-          type="text"
-          name=""
-          placeholder="Write a country name"
-        ></input>
-        <a className="search-btn" href="#">
-          <FontAwesomeIcon icon={faSearch} />
-        </a>
-      </div>
+      <Country results={results} getCountry={getCountry} />
     </div>
   );
 }
