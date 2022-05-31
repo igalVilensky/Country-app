@@ -12,18 +12,20 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      console.log("hi");
     }, 1000);
   }, []);
 
   const getCountry = (status, countryName) => {
     let textToUrl = encodeURIComponent(countryName);
-    let endPoint = `https://restcountries.eu/rest/v2/${status}/${textToUrl}`;
-
+    let endPoint = `https://restcountries.com/v3.1/${status}/${textToUrl}`;
+    console.log(endPoint);
+    // let endPoint = "https://restcountries.com/v3.1/all";
     axios(endPoint)
       .then(({ data }) => setResults(data))
+
       .catch((err) => console.log(`Your had an ${err}`));
   };
+  console.log(results);
   function changeHandle(e) {
     setUserInput(e.target.value);
   }

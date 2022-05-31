@@ -1,26 +1,29 @@
 import React from "react";
 
 const Country = ({ results, getCountry }) => {
-  const lands = results.map((obj, i) => {
-    console.log(obj);
+  const lands = results.map((items, i) => {
+    /*     console.log(results, "results");
+     */ // console.log(getCountry, "getCountry");
+    console.log(items);
     const {
-      name,
       region,
-      flag,
+      name,
       capital,
       population,
       subregion,
       area,
       timezones,
       borders,
-    } = obj;
+      flag,
+    } = items;
+
     return (
       <div key={i} className="result">
-        `<h1>{name}</h1>
+        <h1>{name.common}</h1>
         <p>
-          {name} is a country located in {region} ({subregion} subregion) and
-          shares borders with:{" "}
-          {borders.map((border, i) => (
+          {name.common} is a country located in {region} and {subregion}{" "}
+          subregion and shares borders with:
+          {borders?.map((border, i) => (
             <i
               key={i}
               className="country-link"
@@ -30,11 +33,13 @@ const Country = ({ results, getCountry }) => {
             </i>
           ))}
           . <br />
-          {name}'s capital city is {capital} and its area is {area} km
-          <sup>2</sup>. The population of {name} is {population}. The timezone
-          for {name} is {timezones}
+          {name.common}'s capital city is {capital[0]} and its area is
+          {area} km
+          <sup>2</sup>. The population of {name.common} is {population}. The
+          timezone for {name.common} is {timezones[0]}
         </p>
-        <img src={flag} alt={name} className="flag" /> `
+        {/* <img src={flag} alt={name.common} className="flag" />  */}
+        <div>{flag}</div>
       </div>
     );
   });
